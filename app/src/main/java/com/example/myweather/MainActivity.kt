@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity() {
     private fun requestLocationData() {
 
         val mLocationRequest =
-            LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 500).setDurationMillis(5000).build()
+            LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 500).setDurationMillis(5000).setWaitForAccurateLocation(true).build()
 
         mFusedLocationClient.requestLocationUpdates(
             mLocationRequest, mLocationCallback,
@@ -199,7 +199,7 @@ class MainActivity : AppCompatActivity() {
         if(weatherlist.weather[0].description=="few clouds"){
             binding.wi.setImageResource(R.drawable.suncloudfastwind)
         }
-        else if(weatherlist.weather[0].id.toString()=="50d"){
+        else if(weatherlist.weather[0].id.toString()=="50d"||weatherlist.weather.last().main=="Haze"){
             binding.wi.setImageResource(R.drawable.fast_winds)
         }
         else{
