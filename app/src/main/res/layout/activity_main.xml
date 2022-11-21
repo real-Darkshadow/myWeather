@@ -109,15 +109,13 @@
             <LinearLayout
 
                 android:id="@+id/linearLayout"
-                android:layout_width="55dp"
-                android:layout_height="82dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.527">
@@ -129,12 +127,12 @@
                     android:src="@drawable/fast_winds" />
 
                 <TextView
-                    android:layout_gravity="center"
                     android:id="@+id/wind"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/chakra_petch"
-                    android:text="10 m/s"
+                    android:text="45.89 m/s"
                     android:textColor="@color/text" />
 
                 <TextView
@@ -202,14 +200,14 @@
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/cloud_mid_rain" />
+                    android:src="@drawable/cloudmidrain" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/chakra_petch"
-                    android:id="@+id/rain"
+                    android:id="@+id/clouds"
                     android:text="100%"
                     android:textColor="@color/text" />
 
@@ -218,7 +216,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/chakra_petch"
-                    android:text="Rain"
+                    android:text="Cloudiness"
                     android:textColor="@color/text" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

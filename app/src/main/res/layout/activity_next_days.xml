@@ -165,7 +165,7 @@
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/cloud_mid_rain" />
+                    android:src="@drawable/cloudmidrain" />
 
                 <TextView
                     android:layout_width="wrap_content"
