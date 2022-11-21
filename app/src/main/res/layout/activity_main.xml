@@ -12,7 +12,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,10 +23,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/russo_one"
             android:text="Stuttgart"
+            android:id="@+id/location"
             android:textColor="@color/white"
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chakra_petch"
@@ -35,29 +37,34 @@
             android:textSize="15dp" />
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.016">
+        app:layout_constraintTop_toTopOf="@+id/wi"
+        app:layout_constraintVertical_bias="0.107">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="99dp"
+            android:id="@+id/temp"
             android:fontFamily="@font/russo_one"
             android:gravity="center"
-            android:text="20"
+            android:text=""
             android:textColor="@color/white"
-            android:textSize="90dp" />
+            android:textSize="80dp" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/desmain"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chakra_petch"
             android:text="Thunderstorm"
@@ -66,13 +73,14 @@
 
     </LinearLayout>
 
-
     <ImageView
+        android:id="@+id/wi"
         android:layout_width="168dp"
         android:layout_height="129dp"
         android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/cloud_3_zap"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout4"
@@ -82,31 +90,37 @@
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#202329"
-        app:cardElevation="5dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.298">
+        app:layout_constraintTop_toBottomOf="@+id/wi">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="138dp"
             android:orientation="horizontal"
             android:padding="15dp">
 
             <LinearLayout
 
                 android:id="@+id/linearLayout"
-                android:layout_width="43dp"
+                android:layout_width="55dp"
                 android:layout_height="82dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.527">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -115,6 +129,8 @@
                     android:src="@drawable/fast_winds" />
 
                 <TextView
+                    android:layout_gravity="center"
+                    android:id="@+id/wind"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chakra_petch"
@@ -135,7 +151,10 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
                 app:layout_constraintStart_toEndOf="@+id/linearLayout"
                 app:layout_constraintTop_toTopOf="parent">
@@ -151,6 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/chakra_petch"
+                    android:id="@+id/humidity"
                     android:text="98%"
                     android:textColor="@color/text" />
 
@@ -170,7 +190,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -185,6 +209,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/chakra_petch"
+                    android:id="@+id/rain"
                     android:text="100%"
                     android:textColor="@color/text" />
 
@@ -203,7 +228,7 @@
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView">
@@ -235,9 +260,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="403dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -249,6 +274,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#202329"
         app:cardCornerRadius="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -283,7 +309,7 @@
                     android:textSize="12dp" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chakra_petch"
@@ -302,9 +328,10 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:id="@+id/min"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chakra_petch"
-                    android:text="18"
+                    android:text="18\u00B0"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
 
@@ -314,7 +341,7 @@
                 android:id="@+id/linearLayout7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -333,9 +360,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:id="@+id/max"
                     android:fontFamily="@font/chakra_petch"
-                    android:text="27"
+                    android:text="27\u00B0"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
 
@@ -351,7 +378,7 @@
 
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/visibility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chakra_petch"
