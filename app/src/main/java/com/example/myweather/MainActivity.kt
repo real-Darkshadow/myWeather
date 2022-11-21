@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     // A global variable for Current Latitude
     private var mLatitude: Double = 0.0
-    lateinit var forecastweat: nfor
+   lateinit var forecast: nfor
 
     // A global variable for Current Longitude
     private var mLongitude: Double = 0.0
@@ -86,9 +85,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        binding.recyclerView.adapter = mainAdapter(this)
-        binding.recyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
     lateinit var weatherlist: opendata
@@ -162,7 +158,7 @@ class MainActivity : AppCompatActivity() {
     private fun requestLocationData() {
 
         val mLocationRequest =
-            LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000).setDurationMillis(4000).build()
+            LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 500).setDurationMillis(5000).build()
 
         mFusedLocationClient.requestLocationUpdates(
             mLocationRequest, mLocationCallback,
@@ -199,21 +195,27 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun setup() {
         //binding.date.text=
-        when(weatherlist.weather.last().icon){
-            "50d"->binding.wi.setImageResource(R.drawable.fast_winds)
-            "01d"->binding.wi.setImageResource(R.drawable.sun)
-            "02d"->binding.wi.setImageResource(R.drawable.suncloudfastwind)
-            "03d"->binding.wi.setImageResource(R.drawable.cloud)
-            "04d"->binding.wi.setImageResource(R.drawable.cloud)
-            "09d"->binding.wi.setImageResource(R.drawable.cloudmidrain)
-            "10d"->binding.wi.setImageResource(R.drawable.cloudangledrainzap)
-            "11d"->binding.wi.setImageResource(R.drawable.cloud_3_zap)
-            "13d"->binding.wi.setImageResource(R.drawable.bigsnow)
+
+        if(weatherlist.weather[0].description=="few clouds"){
+            binding.wi.setImageResource(R.drawable.suncloudfastwind)
+        }
+        else if(weatherlist.weather[0].id.toString()=="50d"){
+            binding.wi.setImageResource(R.drawable.fast_winds)
+        }
+        else{
+            when(weatherlist.weather.last().main){
+                "Clear"->binding.wi.setImageResource(R.drawable.sun)
+                "Clouds"->binding.wi.setImageResource(R.drawable.cloud)
+                "Drizzel"->binding.wi.setImageResource(R.drawable.cloudmidrain)
+                "Rain"->binding.wi.setImageResource(R.drawable.cloudangledrainzap)
+                "Thunderstorm"->binding.wi.setImageResource(R.drawable.cloud_3_zap)
+                "Snow"->binding.wi.setImageResource(R.drawable.bigsnow)
+            }
         }
         binding.location.text = weatherlist.name
         binding.temp.text = weatherlist.main.temp.toInt().toString() + "\u00B0"
         binding.desmain.text = weatherlist.weather[0].main
-        binding.wind.text = weatherlist.wind.speed.toString() + " m/s"
+        binding.wind.text = ((weatherlist.wind.speed*3600)/1000).toInt().toString() + " Km/h"
         binding.humidity.text = weatherlist.main.humidity.toString() + "%"
         binding.clouds.text = weatherlist.clouds.all.toString() + "%"
         binding.pressure.text = (weatherlist.main.pressure * 0.030).toInt().toString() + " inHg"
@@ -244,8 +246,12 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<nfor> {
             override fun onResponse(call: Call<nfor>?, respons: Response<nfor>?) {
                 if (respons!!.isSuccessful) {
-                    forecastweat = respons.body()
+                    val forecastweat = respons.body()
                     Log.i("for","${forecastweat}")
+                    forecast=forecastweat
+                    binding.recyclerView.adapter = mainAdapter(this@MainActivity,forecast)
+                    binding.recyclerView.layoutManager =
+                        LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
                 } else {
                     when (respons.code()) {
                         400 -> {
