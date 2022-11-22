@@ -29,6 +29,7 @@
                 android:textSize="14dp" />
 
             <ImageView
+                android:id="@+id/wi2"
                 android:layout_width="match_parent"
                 android:layout_height="61dp"
                 android:src="@drawable/cloud_3_zap" />
