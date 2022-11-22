@@ -4,8 +4,12 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import com.example.myweather.forecastmodel.nfor
+import com.example.myweather.models.opendata
 
 object Constants {
+    lateinit var forecast:nfor
+    lateinit var werather:opendata
 
     const val APP_ID: String = "01e82621a17f5f53dee8d3c6f5786feb"
     const val BASE_URL: String = "https://api.openweathermap.org/data/2.5/"
