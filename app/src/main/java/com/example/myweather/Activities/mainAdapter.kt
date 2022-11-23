@@ -31,7 +31,7 @@ class mainAdapter(val context: Context, val forecastweat: nfor): RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: itemviewholder, position: Int) {
-        holder.deg.text=forecastweat.list[position].main.temp.toString()
+        holder.deg.text=forecastweat.list[position].main.temp.toInt().toString()+"\u00B0"
         if(forecastweat.list[position].weather[0].description=="few clouds"){
             holder.wi2.setImageResource(R.drawable.suncloudfastwind)
         }
@@ -49,7 +49,7 @@ class mainAdapter(val context: Context, val forecastweat: nfor): RecyclerView.Ad
             }
         }
         val input: SimpleDateFormat = SimpleDateFormat("yyyy-mm-dd hh:mm:ss")
-        val output: SimpleDateFormat = SimpleDateFormat("hh:mm aa")
+        val output: SimpleDateFormat = SimpleDateFormat("hh aa")
         try {
             val t:Date=input.parse(forecastweat.list[position].dt_txt)
             holder.time.text=output.format(t)

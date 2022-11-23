@@ -19,11 +19,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/russo_one"
             android:text="Stuttgart"
-            android:id="@+id/location"
             android:textColor="@color/white"
             android:textSize="20dp" />
 
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/chakra_petch"
             android:text="12 September, Sunday"
-            android:textColor="@color/white"
+            android:textColor="@color/text"
             android:textSize="15dp" />
     </LinearLayout>
 
@@ -53,9 +53,9 @@
         app:layout_constraintVertical_bias="0.107">
 
         <TextView
+            android:id="@+id/temp"
             android:layout_width="wrap_content"
             android:layout_height="99dp"
-            android:id="@+id/temp"
             android:fontFamily="@font/russo_one"
             android:gravity="center"
             android:text=""
@@ -63,12 +63,12 @@
             android:textSize="80dp" />
 
         <TextView
-            android:layout_width="wrap_content"
             android:id="@+id/desmain"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/chakra_petch"
             android:text="Thunderstorm"
-            android:textColor="@color/white"
+            android:textColor="@color/text"
             android:textSize="15dp" />
 
     </LinearLayout>
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/chakra_petch"
+                    android:fontFamily="@font/russo_one"
                     android:text="45.89 m/s"
                     android:textColor="@color/text" />
 
@@ -164,11 +164,11 @@
                     android:src="@drawable/cloud_big_rain" />
 
                 <TextView
+                    android:id="@+id/humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/chakra_petch"
-                    android:id="@+id/humidity"
+                    android:fontFamily="@font/russo_one"
                     android:text="98%"
                     android:textColor="@color/text" />
 
@@ -200,14 +200,14 @@
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/cloudmidrain" />
+                    android:src="@drawable/cloud" />
 
                 <TextView
+                    android:id="@+id/clouds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/chakra_petch"
-                    android:id="@+id/clouds"
+                    android:fontFamily="@font/russo_one"
                     android:text="100%"
                     android:textColor="@color/text" />
 
@@ -244,7 +244,7 @@
             android:layout_marginStart="20dp"
             android:fontFamily="@font/chakra_petch"
             android:text="Tommorow"
-            android:textColor="@color/white" />
+            android:textColor="@color/text" />
 
         <TextView
             android:id="@+id/ndays"
@@ -253,14 +253,14 @@
             android:layout_marginStart="20dp"
             android:fontFamily="@font/chakra_petch"
             android:text="Next 7 days"
-            android:textColor="@color/white" />
+            android:textColor="@color/text" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -270,11 +270,11 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:backgroundTint="#202329"
         app:cardCornerRadius="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView">
@@ -303,14 +303,15 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chakra_petch"
                     android:text="pressure"
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
 
                 <TextView
                     android:id="@+id/pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/chakra_petch"
+                    android:fontFamily="@font/russo_one"
+                    android:includeFontPadding="false"
                     android:text="90"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
@@ -321,14 +322,14 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chakra_petch"
                     android:text="Min Temp"
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
                     android:id="@+id/min"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/chakra_petch"
+                    android:fontFamily="@font/russo_one"
                     android:text="18\u00B0"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
@@ -352,14 +353,14 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/chakra_petch"
                     android:text="Max Temp"
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
 
                 <TextView
+                    android:id="@+id/max"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/max"
-                    android:fontFamily="@font/chakra_petch"
+                    android:fontFamily="@font/russo_one"
                     android:text="27\u00B0"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
@@ -368,18 +369,17 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="@font/chakra_petch"
                     android:text="visiblity"
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
+                    android:textColor="@color/text"
+                    android:textSize="14dp" />
 
 
                 <TextView
                     android:id="@+id/visibility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/chakra_petch"
+                    android:fontFamily="@font/russo_one"
                     android:text="3 Km"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
